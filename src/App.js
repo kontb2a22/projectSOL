@@ -8,6 +8,7 @@ import moralis from "./moralis.png";
 const App = () => {
   const [address, setAddress] = useState();
   const [name, setName] = useState();
+  const [royal, setRoyal] = useState();
   const [image, setImage] = useState();
   const SolanaApi = useMoralisSolanaApi();
 
@@ -20,6 +21,7 @@ const App = () => {
     const nftResult = await SolanaApi.nft.getNFTMetadata(options);
     let uri = nftResult.metaplex.metadataUri;
     setName(nftResult.name);
+    setRoyal(nftResult.metaplex.sellerFeeBasisPoints);
 
     try {
       await fetch(uri)
@@ -53,6 +55,8 @@ const App = () => {
           <div className="search" onClick={() => NFTsearch(address)}>Get NFT</div>
           {image && <img src={image} alt="nft" />}
           {name && <div className="name">{name}</div>}
+          {royal && <div className="name">{royal}</div>}
+          
         </div>
         <img className="pwr" src={moralis} alt="powered"/>
       </div>
