@@ -22,6 +22,7 @@ const App = () => {
     let uri = nftResult.metaplex.metadataUri;
     setName(nftResult.name);
     setRoyal(nftResult.metaplex.sellerFeeBasisPoints);
+    console.log(royal);
 
     try {
       await fetch(uri)
