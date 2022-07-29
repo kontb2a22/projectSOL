@@ -21,8 +21,6 @@ const App = () => {
     const nftResult = await SolanaApi.nft.getNFTMetadata(options);
     let uri = nftResult.metaplex.metadataUri;
     setName(nftResult.name);
-    setRoyal(nftResult.metaplex.sellerFeeBasisPoints);
-    console.log(royal);
 
     try {
       await fetch(uri)
