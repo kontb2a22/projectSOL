@@ -5,7 +5,6 @@ import bg from "./bg.png";
 import logo from "./logo.png";
 import moralis from "./moralis.png";
 
-
 const App = () => {
   const [address, setAddress] = useState();
   const [name, setName] = useState();
@@ -35,10 +34,6 @@ const App = () => {
 
   return (
     <>
-    <head>
-     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-    <script src="https://unpkg.com/moralis/dist/moralis.js"></script>
-    </head>
       <div
         style={{
           backgroundImage: `url(${bg})`,
@@ -55,7 +50,7 @@ const App = () => {
             type="text"
             onChange={(e) => setAddress(e.target.value)}
           ></input>
-          <div className="search" onClick={() => NFTsearch(address)}> NFT</div>
+          <div className="search" onClick={() => NFTsearch(address)}>Get NFT</div>
           {image && <img src={image} alt="nft" />}
           {name && <div className="name">{name}</div>}
         </div>
